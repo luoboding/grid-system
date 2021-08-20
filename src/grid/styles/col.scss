@@ -1,0 +1,16 @@
+$grid-count: 12;
+@mixin generateCol($number) {
+  @if $number > 0 {
+    .col-span-#{$number} {
+      width: percentage($number / $grid-count);
+    }
+    .col-offset-#{$number} {
+      margin-left: percentage($number / $grid-count);
+    }
+    @include generateCol($number - 1);
+  }
+};
+.row {
+  @include generateCol(12);
+}
+

@@ -1,0 +1,28 @@
+$grid-count: 24;
+$vertical-align-map: (
+  "top": flex-start,
+  "center": center,
+  "bottom": flex-end,
+);
+
+$horizontal-align-map: (
+  'start': flex-start,
+  'center': center,
+  'end': flex-end,
+  'space-around': space-around,
+  'space-between': space-between,
+);
+
+.row {
+  display: flex;
+  @each $name, $value in $vertical-align-map {
+    &.row-align-#{$name} {
+      align-items: $value;
+    }
+  }
+  @each $name, $value in $horizontal-align-map {
+    &.row-justifiy-#{$name} {
+      justify-content: $value;
+    }
+  }
+}
